@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PC ZONE | Social Media</title>
+
+<meta name="theme-color" content="#080808">
+<meta name="description" content="PC ZONE Social Media - Follow me on social media">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg: #080808;
+    --card: #121212;
+    --text: #ffffff;
+    --muted: #999999;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Kanit', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 50% 0%, #321015 0%, transparent 45%),
+        #080808;
+    padding: 30px 18px;
+}
+
+.container {
+    width: 100%;
+    max-width: 520px;
+    margin: auto;
+}
+
+/* HEADER */
+
+.header {
+    text-align: center;
+    padding: 35px 10px 30px;
+    animation: fadeIn .7s ease;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 18px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff3030, #7b1010);
+    box-shadow: 0 0 35px #ff202033;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.header h1 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.header h1 span {
+    color: #ff4242;
+}
+
+.bio {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 300;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 6px 15px;
+    border: 1px solid #ffffff18;
+    background: #ffffff08;
+    border-radius: 30px;
+    color: #dddddd;
+    font-size: 12px;
+}
+
+/* SECTION TITLE */
+
+.section-title {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 2px;
+    margin: 15px 4px 14px;
+}
+
+/* SOCIAL CARDS */
+
+.social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.social-card {
+    --accent: #ffffff;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    min-height: 94px;
+
+    text-decoration: none;
+    color: white;
+
+    background:
+        linear-gradient(110deg, #ffffff08, transparent 70%),
+        var(--card);
+
+    border: 1px solid #ffffff12;
+    border-radius: 20px;
+    overflow: hidden;
+
+    transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease,
+        background .22s ease;
+
+    animation: slideUp .5s ease both;
+}
+
+.social-card:nth-child(2) {
+    animation-delay: .08s;
+}
+
+.social-card:nth-child(3) {
+    animation-delay: .16s;
+}
+
+.social-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        110deg,
+        var(--accent),
+        transparent 75%
+    );
+    opacity: 0;
+    transition: opacity .22s ease;
+    pointer-events: none;
+}
+
+.social-card:hover,
+.social-card:focus-visible {
+    transform: scale(1.025);
+    border-color: var(--accent);
+    box-shadow: 0 0 25px color-mix(in srgb, var(--accent) 22%, transparent);
+    outline: none;
+}
+
+.social-card:hover::before,
+.social-card:focus-visible::before {
+    opacity: .08;
+}
+
+.social-card:active {
+    transform: scale(.975);
+}
+
+.icon {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 17px;
+    background: color-mix(in srgb, var(--accent) 15%, #111);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.icon svg {
+    width: 29px;
+    height: 29px;
+    fill: currentColor;
+    color: var(--accent);
+}
+
+.social-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.social-name {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.username {
+    display: block;
+    color: #999;
+    font-size: 12px;
+    margin-top: 2px;
+    overflow-wrap: anywhere;
+}
+
+.arrow {
+    font-size: 25px;
+    color: var(--accent);
+    transition: transform .22s ease;
+}
+
+.social-card:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* PLATFORM COLORS */
+
+.instagram {
+    --accent: #ff65a3;
+}
+
+.tiktok {
+    --accent: #42f5e9;
+}
+
+.youtube {
+    --accent: #ff3030;
+}
+
+/* FOOTER */
+
+.footer {
+    margin-top: 38px;
+    padding: 22px 10px;
+    text-align: center;
+    border-top: 1px solid #ffffff10;
+}
+
+.footer p {
+    color: #777;
+    font-size: 12px;
+}
+
+.footer strong {
+    color: #ff4242;
+    font-weight: 500;
+}
+
+.footer .made {
+    margin-top: 7px;
+    color: #555;
+    font-size: 11px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .header h1 {
+        font-size: 29px;
+    }
+
+    .social-card {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">PZ</div>
+
+        <h1>PC <span>ZONE</span></h1>
+
+        <p class="bio">
+            Welcome to my social world.
+            Follow me everywhere!
+        </p>
+
+        <div class="badge">
+            ● OFFICIAL SOCIAL MEDIA
+        </div>
+
+    </header>
+
+    <!-- SOCIAL MEDIA -->
+    <section aria-label="Social media links">
+
+        <h2 class="section-title">
+            CONNECT WITH ME
+        </h2>
+
+        <div class="social-list">
+
+            <!-- INSTAGRAM -->
+            <a
+                class="social-card instagram"
+                href="https://www.instagram.com/taweiopp__17?mdxt=bnBxcDJxeDQwd2U4"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="เปิด Instagram"
+            >
+
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6zm4.4 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>
+                    </svg>
+                </div>
+
+                <div class="social-info">
+                    <div class="social-name">Instagram</div>
+                    <span class="username">@taweiopp__17</span>
+                </div>
+
+                <span class="arrow" aria-hidden="true">→</span>
+
+            </a>
+
+            <!-- TIKTOK -->
+            <a
+                class="social-card tiktok"
+                href="https://www.tiktok.com/@pc.zone88"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="เปิด TikTok"
+            >
+
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19.6 6.3a6.8 6.8 0 0 1-4.2-3.8A7 7 0 0 1 15 1h-4v14.1a3 3 0 1 1-2.1-2.9v-4a7 7 0 1 0 6.1 6.9V8a10.7 10.7 0 0 0 5 1.2v-4a6.8 6.8 0 0 1-.4-.1z"/>
+                    </svg>
+                </div>
+
+                <div class="social-info">
+                    <div class="social-name">TikTok</div>
+                    <span class="username">@pc.zone88</span>
+                </div>
+
+                <span class="arrow" aria-hidden="true">→</span>
+
+            </a>
+
+            <!-- YOUTUBE -->
+            <a
+                class="social-card youtube"
+                href="https://www.youtube.com/@taweiopp__17"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="เปิด YouTube"
+            >
+
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6z"/>
+                    </svg>
+                </div>
+
+                <div class="social-info">
+                    <div class="social-name">YouTube</div>
+                    <span class="username">@taweiopp__17</span>
+                </div>
+
+                <span class="arrow" aria-hidden="true">→</span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 <strong>PC ZONE</strong> · All rights reserved.</p>
+        <p class="made">DESIGNED FOR YOUR DIGITAL WORLD</p>
+    </footer>
+
+</main>
+
+</body>
+</html>
